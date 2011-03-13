@@ -1,6 +1,6 @@
 # node-dateformat
 
-A node.js package for Steven Levithan's JavaScript [dateFormat()][dateformat].
+A node.js package for Steven Levithan's excellent [dateFormat()][dateformat] function.
 
 ## Modifications
 
