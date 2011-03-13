@@ -1,0 +1,7 @@
+{ "name" : "dateformat"
+, "description": "A commonjs port of Steven Levithan's dateFormat function."
+, "maintainers": "Felix Geisendörfer <felix@debuggable.com>"
+, "author": "Steven Levithan"
+, "version": "0.9"
+, "main" : "./lib/dateformat"
+}
