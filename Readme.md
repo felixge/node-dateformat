@@ -5,7 +5,7 @@ A node.js package for Steven Levithan's JavaScript [dateFormat()][dateformat].
 ## Modifications
 
 * Removed the `Date.prototype.format` method. Sorry folks, but extending native prototypes is for suckers.
-* Added a `module.exports = dateFormat`
+* Added a `module.exports = dateFormat;` statement at the bottom
 
 ## Usage
 
