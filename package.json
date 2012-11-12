@@ -4,6 +4,11 @@
   "maintainers": "Felix Geisendörfer <felix@debuggable.com>",
   "homepage": "https://github.com/felixge/node-dateformat",
   "author": "Steven Levithan",
+  "contributors": [
+    "Steven Levithan",
+    "Felix Geisendörfer <felix@debuggable.com>",
+    "Christoph Tavan <dev@tavan.de>"
+  ],
   "version": "1.0.2-1.2.3",
   "main": "./lib/dateformat",
   "dependencies": {},
