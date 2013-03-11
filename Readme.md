@@ -6,6 +6,7 @@ A node.js package for Steven Levithan's excellent [dateFormat()][dateformat] fun
 
 * Removed the `Date.prototype.format` method. Sorry folks, but extending native prototypes is for suckers.
 * Added a `module.exports = dateFormat;` statement at the bottom
+* Added the placeholder `N` to get the ISO 8601 numeric representation of the day of the week
 
 ## Usage
 
@@ -59,6 +60,11 @@ As taken from Steven's post, modified to match the Modifications listed above:
     // You can also get the ISO 8601 week of the year:
     dateFormat(now, "W");
     // 42
+
+    // and also get the ISO 8601 numeric representation of the day of the week:
+    dateFormat(now,"N");
+    // 6
+
 ## License
 
 (c) 2007-2009 Steven Levithan [stevenlevithan.com][stevenlevithan], MIT license.
