@@ -9,7 +9,7 @@
     "Felix Geisendörfer <felix@debuggable.com>",
     "Christoph Tavan <dev@tavan.de>"
   ],
-  "version": "1.0.4-1.2.3",
+  "version": "1.0.5-1.2.3",
   "main": "./lib/dateformat",
   "dependencies": {},
   "devDependencies": {},
