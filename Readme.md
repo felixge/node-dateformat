@@ -11,7 +11,7 @@ A node.js package for Steven Levithan's excellent [dateFormat()][dateformat] fun
 ## Usage
 
 As taken from Steven's post, modified to match the Modifications listed above:
-
+```js
     var dateFormat = require('dateformat');
     var now = new Date();
 
@@ -64,7 +64,7 @@ As taken from Steven's post, modified to match the Modifications listed above:
     // and also get the ISO 8601 numeric representation of the day of the week:
     dateFormat(now,"N");
     // 6
-
+```
 ## License
 
 (c) 2007-2009 Steven Levithan [stevenlevithan.com][stevenlevithan], MIT license.
