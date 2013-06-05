@@ -8,6 +8,12 @@ A node.js package for Steven Levithan's excellent [dateFormat()][dateformat] fun
 * Added a `module.exports = dateFormat;` statement at the bottom
 * Added the placeholder `N` to get the ISO 8601 numeric representation of the day of the week
 
+## Installation
+
+```bash
+$ npm install dateformat
+```
+
 ## Usage
 
 As taken from Steven's post, modified to match the Modifications listed above:
