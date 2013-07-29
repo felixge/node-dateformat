@@ -59,7 +59,7 @@ As taken from Steven's post, modified to match the Modifications listed above:
     dateFormat(now, "longTime", true);
     // 10:46:21 PM UTC
 
-    // ...Or add the prefix "UTC:" to your mask.
+    // ...Or add the prefix "UTC:" or "GMT:" to your mask.
     dateFormat(now, "UTC:h:MM:ss TT Z");
     // 10:46:21 PM UTC
 
