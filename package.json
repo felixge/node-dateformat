@@ -22,9 +22,16 @@
     "get-stdin": "*",
     "meow": "*"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "for-own": "^0.1.2",
+    "mocha": "^2.0.1",
+    "should": "^4.0.4"
+  },
   "engines": {
     "node": "*"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha test/test.js --require should "
   },
   "repository": {
     "type": "git",
