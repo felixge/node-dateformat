@@ -35,7 +35,7 @@ var cli = meow({
     '  dateformat "UTC:h:MM:ss TT Z"',
     '  dateformat "longTime" true',
     '  dateformat "longTime" false true',
-    '  dateformat "Jun 9 2007" "fullDate" true'
+    '  dateformat "Jun 9 2007" "fullDate" true',
     '  date +%s | dateformat',
     ''
   ].join('\n')
