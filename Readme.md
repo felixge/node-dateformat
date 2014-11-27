@@ -12,6 +12,7 @@ A node.js package for Steven Levithan's excellent [dateFormat()][dateformat] fun
 
 ```bash
 $ npm install dateformat
+$ dateformat --help
 ```
 
 ## Usage
