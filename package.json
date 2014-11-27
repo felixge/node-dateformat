@@ -9,10 +9,10 @@
     "Felix Geisendörfer <felix@debuggable.com>",
     "Christoph Tavan <dev@tavan.de>"
   ],
-  "version": "1.0.8",
-  "licenses" : {
-    "type" : "MIT",
-    "url" : "https://raw.githubusercontent.com/felixge/node-dateformat/master/LICENSE"
+  "version": "1.0.9",
+  "licenses": {
+    "type": "MIT",
+    "url": "https://raw.githubusercontent.com/felixge/node-dateformat/master/LICENSE"
   },
   "main": "lib/dateformat",
   "bin": {
