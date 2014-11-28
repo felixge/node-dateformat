@@ -23,15 +23,14 @@
     "meow": "*"
   },
   "devDependencies": {
-    "for-own": "^0.1.2",
-    "mocha": "^2.0.1",
-    "should": "^4.0.4"
+    "underscore": "1.7.0",
+    "mocha": "2.0.1"
   },
   "engines": {
     "node": "*"
   },
   "scripts": {
-    "test": "node_modules/.bin/mocha test/test.js --require should "
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
