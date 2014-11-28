@@ -17,8 +17,8 @@ var expects = {
   'longTime':              '1:19:44 PM GMT+0200',
   'isoDate':               '2014-11-26',
   'isoTime':               '13:19:44',
-  'isoDateTime':           '2014-11-26"P"13:19:44',
-  'isoUtcDateTime':        '2014-11-26"A"11:19:44"UTC"',
+  'isoDateTime':           '2014-11-26T13:19:44',
+  'isoUtcDateTime':        '2014-11-26T11:19:44Z',
   'expiresHeaderFormat':   'Wed, 26 Nov 2014 13:19:44 GMT+0200'
 };
 
