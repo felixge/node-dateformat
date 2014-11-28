@@ -3,8 +3,9 @@ var path = require('path');
 var exec = require('child_process').exec;
 var exec = require('assert');
 var forOwn = require('for-own');
+var should = require('should');
 var dateFormat = require('../lib/dateformat');
-var now = 1417000784633;
+var now = new Date(2014, 10, 26, 13, 19, 44);
 
 var expects = {
   'default':               'Wed Nov 26 2014 13:19:44',
@@ -17,8 +18,8 @@ var expects = {
   'longTime':              '1:19:44 PM GMT+0200',
   'isoDate':               '2014-11-26',
   'isoTime':               '13:19:44',
-  'isoDateTime':           '2014-11-26"P"13:19:44',
-  'isoUtcDateTime':        '2014-11-26"A"11:19:44"UTC"',
+  'isoDateTime':           '2014-11-26T13:19:44',
+  'isoUtcDateTime':        '2014-11-26T11:19:44Z',
   'expiresHeaderFormat':   'Wed, 26 Nov 2014 13:19:44 GMT+0200'
 };
 
@@ -27,7 +28,6 @@ describe('dateformat([now], [mask])', function() {
     it('should format `' + key + '` mask', function(done) {
       var expected = expects[key];
       var actual = dateFormat(now, key);
-
       actual.should.equal(expected);
       done();
     });
