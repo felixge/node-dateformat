@@ -9,7 +9,7 @@
     "Felix Geisendörfer <felix@debuggable.com>",
     "Christoph Tavan <dev@tavan.de>"
   ],
-  "version": "1.0.9",
+  "version": "1.0.10",
   "licenses": {
     "type": "MIT",
     "url": "https://raw.githubusercontent.com/felixge/node-dateformat/master/LICENSE"
