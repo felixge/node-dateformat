@@ -4,10 +4,21 @@ A node.js package for Steven Levithan's excellent [dateFormat()][dateformat] fun
 
 ## Modifications
 
+
+### 1.0.14
+* Lazy evaluation of more expensive placeholders to improve performance in
+  most cases where these placeholders are not used.
+* Allow both "" and '' for literals
+
+### 1.0.13
+* Add placeholder 'G' for week year according to ISO 8601.
+* Add placeholder 'V' for week number according to ISO 8601
+* Removed CLI and fixed AMD include definition
+
+### 1.0.11
 * Removed the `Date.prototype.format` method. Sorry folks, but extending native prototypes is for suckers.
 * Added a `module.exports = dateFormat;` statement at the bottom
 * Added the placeholder `N` to get the ISO 8601 numeric representation of the day of the week
-* Removed CLI and fixed AMD include definition
 
 ## Installation
 
