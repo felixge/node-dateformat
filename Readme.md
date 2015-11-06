@@ -1,20 +1,18 @@
-# dateformat
+# dateformat-light
 
 A node.js package for Steven Levithan's excellent [dateFormat()][dateformat] function.
-
-[![Build Status](https://travis-ci.org/felixge/node-dateformat.svg)](https://travis-ci.org/felixge/node-dateformat)
 
 ## Modifications
 
 * Removed the `Date.prototype.format` method. Sorry folks, but extending native prototypes is for suckers.
 * Added a `module.exports = dateFormat;` statement at the bottom
 * Added the placeholder `N` to get the ISO 8601 numeric representation of the day of the week
+* Removed CLI and fixed AMD include definition
 
 ## Installation
 
 ```bash
-$ npm install dateformat
-$ dateformat --help
+$ npm install dateformat-light
 ```
 
 ## Usage
