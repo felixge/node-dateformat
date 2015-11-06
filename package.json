@@ -10,7 +10,7 @@
     "Christoph Tavan <dev@tavan.de>",
     "Johan Heander <johan@timezynk.com>"
   ],
-  "version": "1.0.13",
+  "version": "1.0.14",
   "license": "MIT",
   "main": "lib/dateformat",
   "dependencies": {},
