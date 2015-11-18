@@ -20,7 +20,6 @@
     "meow": "*"
   },
   "devDependencies": {
-    "underscore": "1.7.0",
     "mocha": "2.0.1"
   },
   "engines": {
