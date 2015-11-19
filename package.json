@@ -16,8 +16,8 @@
     "dateformat": "bin/cli.js"
   },
   "dependencies": {
-    "get-stdin": "*",
-    "meow": "*"
+    "get-stdin": "^4.0.1",
+    "meow": "^3.3.0"
   },
   "devDependencies": {
     "underscore": "1.7.0",
