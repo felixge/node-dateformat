@@ -74,6 +74,25 @@ As taken from Steven's post, modified to match the Modifications listed above:
     dateFormat(now,"N");
     // 6
 ```
+
+## Localization (i18n)
+
+This is how you can localize the week and month names:
+```js
+    var dateFormat = require('dateformat');
+    // Add german localization:
+    dateFormat.i18n = {
+      dayNames: [
+        'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa',
+        'Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'
+      ],
+      monthNames: [
+        'Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez',
+        'Jänner', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
+      ]
+    };
+```
+
 ## License
 
 (c) 2007-2009 Steven Levithan [stevenlevithan.com][stevenlevithan], MIT license.
