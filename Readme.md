@@ -75,7 +75,7 @@ As taken from Steven's post, modified to match the Modifications listed above:
     // 6
 ```
 
-## Localization (i18n)
+## Internationalization (i18n)
 
 This is how you can localize day and month names:
 ```js
