@@ -7,7 +7,8 @@
   "contributors": [
     "Steven Levithan",
     "Felix Geisendörfer <felix@debuggable.com>",
-    "Christoph Tavan <dev@tavan.de>"
+    "Christoph Tavan <dev@tavan.de>",
+    "Jon Schlinkert (https://github.com/jonschlinkert)"
   ],
   "version": "1.0.12",
   "license": "MIT",
