@@ -10,7 +10,7 @@
     "Christoph Tavan <dev@tavan.de>",
     "Jon Schlinkert (https://github.com/jonschlinkert)"
   ],
-  "version": "1.0.12",
+  "version": "2.0.0",
   "license": "MIT",
   "main": "lib/dateformat",
   "devDependencies": {
