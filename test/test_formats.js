@@ -5,19 +5,20 @@ var _ = require('underscore');
 var dateFormat = require('../lib/dateformat');
 
 var expects = {
-  'default':               'Wed Nov 26 2014 13:19:44',
-  'shortDate':             '11/26/14',
-  'mediumDate':            'Nov 26, 2014',
-  'longDate':              'November 26, 2014',
-  'fullDate':              'Wednesday, November 26, 2014',
+  'default':               'Sat Mar 08 2014 13:19:44',
+  'shortDate':             '3/8/14',
+  'paddedShortDate':       '03/08/2014',
+  'mediumDate':            'Mar 8, 2014',
+  'longDate':              'March 8, 2014',
+  'fullDate':              'Saturday, March 8, 2014',
   'shortTime':             '1:19 PM',
   'mediumTime':            '1:19:44 PM',
   'longTime':              '1:19:44 PM %TZ_PREFIX%%TZ_OFFSET%',
-  'isoDate':               '2014-11-26',
+  'isoDate':               '2014-03-08',
   'isoTime':               '13:19:44',
-  'isoDateTime':           '2014-11-26T13:19:44%TZ_OFFSET%',
+  'isoDateTime':           '2014-03-08T13:19:44%TZ_OFFSET%',
   'isoUtcDateTime':        '',
-  'expiresHeaderFormat':   'Wed, 26 Nov 2014 13:19:44 %TZ_PREFIX%%TZ_OFFSET%'
+  'expiresHeaderFormat':   'Sat, 08 Mar 2014 13:19:44 %TZ_PREFIX%%TZ_OFFSET%'
 };
 
 function pad(num, size) {
@@ -49,7 +50,7 @@ function timezoneOffset(date) {
 describe('dateformat([now], [mask])', function() {
   _.each(dateFormat.masks, function(value, key) {
     it('should format `' + key + '` mask', function(done) {
-      var now = new Date(2014, 10, 26, 13, 19, 44);
+      var now = new Date(2014, 2, 8, 13, 19, 44);
       var tzOffset = timezoneOffset(now);
       var expected = expects[key].replace(/%TZ_PREFIX%/, 'GMT')
                                  .replace(/%TZ_OFFSET%/g, tzOffset)
@@ -66,7 +67,7 @@ describe('dateformat([now], [mask])', function() {
     });
   });
   it('should use `default` mask, when `mask` is empty', function(done) {
-    var now = new Date(2014, 10, 26, 13, 19, 44);
+    var now = new Date(2014, 2, 8, 13, 19, 44);
     var expected = expects['default'];
     var actual = dateFormat(now);
 
