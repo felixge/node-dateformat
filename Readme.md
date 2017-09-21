@@ -126,6 +126,12 @@ Name | Mask | Example
 `isoTime` | `HH:MM:ss` | 17:46:21
 `isoDateTime` | `yyyy-mm-dd'T'HH:MM:ss` | 2007-06-09T17:46:21
 `isoUtcDateTime` | `UTC:yyyy-mm-dd'T'HH:MM:ss'Z'` | 2007-06-09T22:46:21Z
+
+## Breaking change in 2.1.0
+2.1.0 was published with a breaking change for those using localized strings.
+2.2.0 has been published without the change to keep packages refering to ^2.0.0 to continue working.
+3.0.* contains the localized AM/PM change.
+
 ## License
 
 (c) 2007-2009 Steven Levithan [stevenlevithan.com][stevenlevithan], MIT license.
