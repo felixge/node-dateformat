@@ -15,8 +15,7 @@
   "main": "lib/dateformat",
   "dependencies": {},
   "devDependencies": {
-    "underscore": "1.7.0",
-    "mocha": "2.0.1"
+    "mocha": "6.1.2"
   },
   "engines": {
     "node": "*"

@@ -1,7 +1,4 @@
 var assert = require('assert');
-
-var _ = require('underscore');
-
 var dateFormat = require('../lib/dateformat');
 
 var expects = {
@@ -47,7 +44,8 @@ function timezoneOffset(date) {
 }
 
 describe('dateformat([now], [mask])', function() {
-  _.each(dateFormat.masks, function(value, key) {
+  Object.keys(dateFormat.masks).forEach(function(key) {
+    var value = dateFormat.masks[key];
     it('should format `' + key + '` mask', function(done) {
       var now = new Date(2014, 10, 26, 13, 19, 44);
       var tzOffset = timezoneOffset(now);

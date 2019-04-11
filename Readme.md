@@ -4,6 +4,8 @@ A node.js package for Steven Levithan's excellent [dateFormat()][dateformat] fun
 
 ## Modifications
 
+### 1.1.0
+* Add placeholder 'VV' for zero-padded variant of ISO 8601 week number
 
 ### 1.0.14
 * Lazy evaluation of more expensive placeholders to improve performance in
