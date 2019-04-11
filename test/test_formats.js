@@ -71,4 +71,9 @@ describe('dateformat([now], [mask])', function() {
     assert.strictEqual(actual, expected);
     done();
   });
+
+  it('should use two digits when formatting milliseconds with L', function () {
+    const date = new Date('2018-11-12T05:19:45.997Z');
+    assert.strictEqual(dateFormat(date, "UTC:ss.L'Z'"), '45.99Z');
+  })
 });

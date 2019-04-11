@@ -4,6 +4,9 @@ A node.js package for Steven Levithan's excellent [dateFormat()][dateformat] fun
 
 ## Modifications
 
+### 1.2.1
+* Fix problem with format 'L' and milliseconds over 995. See https://github.com/felixge/node-dateformat/issues/89
+
 ### 1.2.0
 * Add ability to localize AM/PM strings
 
