@@ -4,6 +4,9 @@ A node.js package for Steven Levithan's excellent [dateFormat()][dateformat] fun
 
 ## Modifications
 
+### 1.3.0
+* Add placeholder 'p' to format timezone with colon
+
 ### 1.2.1
 * Fix problem with format 'L' and milliseconds over 995. See https://github.com/felixge/node-dateformat/issues/89
 
@@ -117,6 +120,7 @@ Mask | Description
 `MM` | Minutes; leading zero for single-digit minutes.
 `N` | ISO 8601 numeric representation of the day of the week.
 `o` | GMT/UTC timezone offset, e.g. -0500 or +0230.
+`p` | GMT/UTC timezone offset, e.g. -05:00 or +02:30.
 `s` | Seconds; no leading zero for single-digit seconds.
 `ss` | Seconds; leading zero for single-digit seconds.
 `S` | The date's ordinal suffix (st, nd, rd, or th). Works well with `d`.
@@ -148,7 +152,7 @@ Name | Mask | Example
 `longTime` | `h:MM:ss TT Z` | 5:46:21 PM EST
 `isoDate` | `yyyy-mm-dd` | 2007-06-09
 `isoTime` | `HH:MM:ss` | 17:46:21
-`isoDateTime` | `yyyy-mm-dd'T'HH:MM:ss` | 2007-06-09T17:46:21
+`isoDateTime` | `yyyy-mm-dd'T'HH:MM:sso` | 2007-06-09T17:46:21+0700
 `isoUtcDateTime` | `UTC:yyyy-mm-dd'T'HH:MM:ss'Z'` | 2007-06-09T22:46:21Z
 
 ### Localization
