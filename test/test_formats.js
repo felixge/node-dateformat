@@ -75,11 +75,17 @@ describe('dateformat([now], [mask])', function() {
   it('should use two digits when formatting milliseconds with L', function () {
     const date = new Date('2018-11-12T05:19:45.997Z');
     assert.strictEqual(dateFormat(date, "UTC:ss.L'Z'"), '45.99Z');
-  })
+  });
 
   it('should be possible to format zone with or without colon', function () {
     var actual = dateFormat('2014-06-02T13:23:21-08:00', 'yyyy-mm-dd\'T\'HH:MM:ssp');
     var actual2 = dateFormat('2014-06-02T13:23:21-08:00', 'yyyy-mm-dd\'T\'HH:MM:sso');
     assert.strictEqual(actual, actual2.replace(/(\d\d)$/, ':$1'));
-  })
+  });
+
+  it('should work with epoch as input', function () {
+    assert.strictEqual(dateFormat(0, 'isoUtcDateTime'), '1970-01-01T00:00:00Z');
+    assert.strictEqual(dateFormat(1554979820000, 'isoUtcDateTime'), '2019-04-11T10:50:20Z');
+  });
+
 });

@@ -4,6 +4,9 @@ A node.js package for Steven Levithan's excellent [dateFormat()][dateformat] fun
 
 ## Modifications
 
+### 1.3.1
+* Fix issue with formatting the number 0. See https://github.com/felixge/node-dateformat/issues/79
+
 ### 1.3.0
 * Add placeholder 'p' to format timezone with colon
 
