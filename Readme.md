@@ -37,8 +37,7 @@ dateFormat.masks.hammerTime = 'HH:MM! "Can\'t touch this!"';
 dateFormat(now, "hammerTime");
 // 17:46! Can't touch this!
 
-// When using the standalone dateFormat function,
-// you can also provide the date as a string
+// You can also provide the date as a string
 dateFormat("Jun 9 2007", "fullDate");
 // Saturday, June 9, 2007
 
@@ -128,6 +127,34 @@ Name | Mask | Example
 `isoTime` | `HH:MM:ss` | 17:46:21
 `isoDateTime` | `yyyy-mm-dd'T'HH:MM:sso` | 2007-06-09T17:46:21+0700
 `isoUtcDateTime` | `UTC:yyyy-mm-dd'T'HH:MM:ss'Z'` | 2007-06-09T22:46:21Z
+
+### Localization
+Day names, month names and the AM/PM indicators can be localized by
+passing an object with the necessary strings. For example:
+```js
+var dateFormat = require('dateformat');
+dateFormat.i18n = {
+    dayNames: [
+        'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
+        'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+    ],
+    monthNames: [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+    ],
+    timeNames: [
+        'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+    ]
+};
+```
+> Notice that only one language is supported at a time and all strings
+> *must* be present in the new value.
+
+### Breaking change in 2.1.0
+- 2.1.0 was published with a breaking change, for those using localized strings.
+- 2.2.0 has been published without the change, to keep packages refering to ^2.0.0 to continue working. This is now branch v2_2.
+- 3.0.* contains the localized AM/PM change.
+
 ## License
 
 (c) 2007-2009 Steven Levithan [stevenlevithan.com][stevenlevithan], MIT license.
