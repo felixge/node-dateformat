@@ -4,6 +4,9 @@ A node.js package for Steven Levithan's excellent [dateFormat()][dateformat] fun
 
 ## Modifications
 
+### 1.3.2
+* Fix issue when applying function in Safari to strings missing timezone designator.
+
 ### 1.3.1
 * Fix issue with formatting the number 0. See https://github.com/felixge/node-dateformat/issues/79
 
