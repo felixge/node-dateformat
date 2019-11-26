@@ -65,6 +65,7 @@ describe('dateformat([now], [mask])', function() {
       done();
     });
   });
+
   it('should use `default` mask, when `mask` is empty', function(done) {
     var now = new Date(2014, 10, 26, 13, 19, 44);
     var expected = expects['default'];
@@ -73,4 +74,12 @@ describe('dateformat([now], [mask])', function() {
     assert.strictEqual(actual, expected);
     done();
   });
+
+  it('yyyy length is four when year is less than 1000', function(done) {
+    assert.strictEqual(dateFormat(new Date('0999-01-01'), 'yyyy'), '0999');
+    assert.strictEqual(dateFormat(new Date('0099-01-01'), 'yyyy'), '0099');
+    assert.strictEqual(dateFormat(new Date('0009-01-01'), 'yyyy'), '0009');
+    done();
+  });
+
 });
