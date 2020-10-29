@@ -103,7 +103,7 @@ describe("dateformat([now], [mask])", function () {
       // act
       var actual = dateFormat(date, "longTime");
       // assert
-      assert.match(actual, /\+0100/);
+      assert(actual.match(/\+0100/));
     });
     it("should output -0100 when timezone is UTC-1", function() {
       // arrange
@@ -112,7 +112,7 @@ describe("dateformat([now], [mask])", function () {
       // act
       var actual = dateFormat(date, "longTime");
       // assert
-      assert.match(actual, /\-0100/);
+      assert(actual.match(/\-0100/));
     });
     it("should output GMT when timezone is GMT", function () {
       // arrange
@@ -121,7 +121,7 @@ describe("dateformat([now], [mask])", function () {
       // act
       var actual = dateFormat(date, "longTime");
       // assert
-      assert.match(actual, /GMT/);
+      assert(actual.match(/GMT/));
     });
     it("should output +0530 for India", function () {
       // arrange
@@ -130,7 +130,7 @@ describe("dateformat([now], [mask])", function () {
       // act
       var actual = dateFormat(date, "longTime");
       // assert
-      assert.match(actual, /\+0530/);
+      assert(actual.match(/\+0530/));
     });
     it("should output time in GMT when gmt is set to true", function() {
       // arrange
@@ -139,7 +139,7 @@ describe("dateformat([now], [mask])", function () {
       // act
       var actual = dateFormat(date, "longTime", false, true);
       // assert
-      assert.match(actual, /GMT\+0100/);
+      assert(actual.match(/GMT\+0100/));
     });
     it("should output time in UTC when utc is true", function() {
       // arrange
@@ -148,7 +148,7 @@ describe("dateformat([now], [mask])", function () {
       // act
       var actual = dateFormat(date, "longTime", true, false);
       // assert
-      assert.match(actual, /UTC\+0100/);
+      assert(actual.match(/UTC\+0100/));
     }),
     it("has no idea what happens when GMT is true and UTC is true", function() {
       // arrange
@@ -157,7 +157,7 @@ describe("dateformat([now], [mask])", function () {
       // act
       var actual = dateFormat(date, "longTime", true, true);
       // assert
-      assert.match(actual, /GMT\+0100/);
+      assert(actual.match(/GMT\+0100/));
     });
     it("should output PT if timezone is pacific time", function() {
       // arrange
@@ -169,8 +169,8 @@ describe("dateformat([now], [mask])", function () {
       // act
       var actual = dateFormat(date, "longTime");
       // assert
-      assert.match(actual, /PDT/);
-      assert.doesNotMatch(actual, /\d{4}/);
+      assert(actual.match(/PDT/));
+      assert(!(actual.match(/\d{4}/)));
     });
   });
 });
