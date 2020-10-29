@@ -83,6 +83,7 @@ describe("dateformat([now], [mask])", function () {
       Date.prototype.toString = function () {
         return date;
       };
+      Date.prototype.getTimezoneOffset = function() { return -60; };
       var tzOffset = "+0100";
       var expected = expects["longTime"]
         .replace(/%TZ_PREFIX%/, "GMT")
@@ -92,6 +93,84 @@ describe("dateformat([now], [mask])", function () {
       var actual = dateFormat(date, "longTime");
       // Assert
       assert.strictEqual(actual, expected);
+    });
+  });
+  describe("timezone format", function() {
+    it("should output +0100 when timezone is UTC+1", function() {
+      // arrange
+      var date = new Date(2014, 10, 26, 13, 19, 44);
+      Date.prototype.getTimezoneOffset = function() { return -60; }  // timezone +0100
+      // act
+      var actual = dateFormat(date, "longTime");
+      // assert
+      assert.match(actual, /\+0100/);
+    });
+    it("should output -0100 when timezone is UTC-1", function() {
+      // arrange
+      var date = new Date(2014, 10, 26, 13, 19, 44);
+      Date.prototype.getTimezoneOffset = function() { return +60; }  // timezone -0100
+      // act
+      var actual = dateFormat(date, "longTime");
+      // assert
+      assert.match(actual, /\-0100/);
+    });
+    it("should output GMT when timezone is GMT", function () {
+      // arrange
+      var date = new Date(2014, 10, 26, 13, 19, 44);
+      Date.prototype.getTimezoneOffset = function() { return 0; }  // timezone UTC
+      // act
+      var actual = dateFormat(date, "longTime");
+      // assert
+      assert.match(actual, /GMT/);
+    });
+    it("should output +0530 for India", function () {
+      // arrange
+      var date = new Date(2014, 10, 26, 13, 19, 44);
+      Date.prototype.getTimezoneOffset = function() { return -330; }  // timezone +0530
+      // act
+      var actual = dateFormat(date, "longTime");
+      // assert
+      assert.match(actual, /\+0530/);
+    });
+    it("should output time in GMT when gmt is set to true", function() {
+      // arrange
+      var date = new Date(2014, 10, 26, 13, 19, 44);
+      Date.prototype.getTimezoneOffset = function() { return -60; }  // timezone +0100
+      // act
+      var actual = dateFormat(date, "longTime", false, true);
+      // assert
+      assert.match(actual, /GMT\+0100/);
+    });
+    it("should output time in UTC when utc is true", function() {
+      // arrange
+      var date = new Date(2014, 10, 26, 13, 19, 44);
+      Date.prototype.getTimezoneOffset = function() { return -60; }  // timezone +0100
+      // act
+      var actual = dateFormat(date, "longTime", true, false);
+      // assert
+      assert.match(actual, /UTC\+0100/);
+    }),
+    it("has no idea what happens when GMT is true and UTC is true", function() {
+      // arrange
+      var date = new Date(2014, 10, 26, 13, 19, 44);
+      Date.prototype.getTimezoneOffset = function() { return -60; }  // timezone +0100
+      // act
+      var actual = dateFormat(date, "longTime", true, true);
+      // assert
+      assert.match(actual, /GMT\+0100/);
+    });
+    it("should output PT if timezone is pacific time", function() {
+      // arrange
+      var date = new Date(2014, 10, 26, 13, 19, 44);
+      Date.prototype.getTimezoneOffset = function() { return +420; }  // timezone -0700
+      Date.prototype.toString = function () {
+        return "Wed Nov 26 2014 13:19:44 PDT";
+      };
+      // act
+      var actual = dateFormat(date, "longTime");
+      // assert
+      assert.match(actual, /PDT/);
+      assert.doesNotMatch(actual, /\d{4}/);
     });
   });
 });
