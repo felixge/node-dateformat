@@ -16,15 +16,15 @@ describe("Mask: 'W'", function () {
     done();
   });
 
-  it("should format '2020-08-29' as '34'", function (done) {
+  it("should format '2020-08-29' as '35'", function (done) {
     var d = dateFormat("2020-08-29", "W");
-    assert.strictEqual(d, "34");
+    assert.strictEqual(d, "35");
     done();
   });
 
-  it("should format '2020-09-22' as '38'", function (done) {
+  it("should format '2020-09-22' as '39'", function (done) {
     var d = dateFormat("2020-09-22", "W");
-    assert.strictEqual(d, "38");
+    assert.strictEqual(d, "39");
     done();
   });
 });
