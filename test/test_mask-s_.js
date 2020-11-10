@@ -3,14 +3,14 @@ var dateFormat = require("../lib/dateformat");
 
 describe("Mask: 'S'", function () {
   it("should format '1984-02-7' as 'th'", function (done) {
-    let date = new Date("1984-02-7");
+    var date = new Date("1984-02-7");
     var d = dateFormat(date, "S");
     assert.strictEqual(d, "th");
     done();
   });
 
   it("should format '2013-01-3' as 'rd'", function (done) {
-    let date = new Date("2013-01-3");
+    var date = new Date("2013-01-3");
     var d = dateFormat(date, "S");
     assert.strictEqual(d, "rd");
     done();

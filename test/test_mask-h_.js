@@ -3,14 +3,14 @@ var dateFormat = require("../lib/dateformat");
 
 describe("Mask: 'H'", function () {
   it("should format '1883-03-22T07:35:26.419' as '7'", function (done) {
-    let date = new Date("1883-03-22T07:35:26.419");
+    var date = new Date("1883-03-22T07:35:26.419");
     var d = dateFormat(date, "H");
     assert.strictEqual(d, "7");
     done();
   });
 
   it("should format '2012-11-07T14:39:48.988' as '14'", function (done) {
-    let date = new Date("2012-11-07T14:39:48.988");
+    var date = new Date("2012-11-07T14:39:48.988");
     var d = dateFormat(date, "H");
     assert.strictEqual(d, "14");
     done();

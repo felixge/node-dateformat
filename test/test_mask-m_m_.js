@@ -3,14 +3,14 @@ var dateFormat = require("../lib/dateformat");
 
 describe("Mask: 'MM'", function () {
   it("should format '1876-07-11T13:19:36.341' as '19'", function (done) {
-    let date = new Date("1876-07-11T13:19:36.341");
+    var date = new Date("1876-07-11T13:19:36.341");
     var d = dateFormat(date, "MM");
     assert.strictEqual(d, "19");
     done();
   });
 
   it("should format '2013-01-23T07:08:07.942' as '08'", function (done) {
-    let date = new Date("2013-01-23T07:08:07.942");
+    var date = new Date("2013-01-23T07:08:07.942");
     var d = dateFormat(date, "MM");
     assert.strictEqual(d, "08");
     done();

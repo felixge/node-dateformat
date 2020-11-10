@@ -3,14 +3,14 @@ var dateFormat = require("../lib/dateformat");
 
 describe("Mask: 'l'", function () {
   it("should format '2020-10-10T08:48:02.436' as '436'", function (done) {
-    let date = new Date("2020-10-10T08:48:02.436");
+    var date = new Date("2020-10-10T08:48:02.436");
     var d = dateFormat(date, "l");
     assert.strictEqual(d, "436");
     done();
   });
 
   it("should format '1993-02-16T14:22:12.654' as '654'", function (done) {
-    let date = new Date("1993-02-16T14:22:12.654");
+    var date = new Date("1993-02-16T14:22:12.654");
     var d = dateFormat(date, "l");
     assert.strictEqual(d, "654");
     done();
