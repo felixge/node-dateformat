@@ -21,7 +21,8 @@
     "node": "*"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "benchmark": "node ./benchmark/benchmark.js"
   },
   "repository": {
     "type": "git",
