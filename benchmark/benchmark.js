@@ -14,8 +14,8 @@ const masks = [
 let results = [];
 
 masks.forEach((mask) => {
-  const previousSpeed = getSpeed(true, mask);
-  const newSpeed = getSpeed(false, mask);
+  const previousSpeed = getSpeed(false, mask);
+  const newSpeed = getSpeed(true, mask);
   results.push({
     mask: mask,
     previous: previousSpeed + "ms",
