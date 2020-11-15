@@ -1,7 +1,9 @@
 {
   "name": "dateformat",
   "description": "A node.js package for Steven Levithan's excellent dateFormat() function.",
-  "maintainers": "Felix Geisendörfer <felix@debuggable.com>",
+  "maintainers": [
+    "Felix Geisendörfer <felix@debuggable.com>"
+  ],
   "homepage": "https://github.com/felixge/node-dateformat",
   "author": "Steven Levithan",
   "contributors": [
