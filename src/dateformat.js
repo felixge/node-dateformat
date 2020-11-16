@@ -56,66 +56,78 @@
         }
       }
 
-      var _ = utc ? "getUTC" : "get";
-      var d = date[_ + "Date"]();
-      var D = date[_ + "Day"]();
-      var m = date[_ + "Month"]();
-      var y = date[_ + "FullYear"]();
-      var H = date[_ + "Hours"]();
-      var M = date[_ + "Minutes"]();
-      var s = date[_ + "Seconds"]();
-      var L = date[_ + "Milliseconds"]();
-      var o = utc ? 0 : date.getTimezoneOffset();
-      var W = getWeek(date);
-      var N = getDayOfWeek(date);
+      var _ = () => (utc ? "getUTC" : "get");
+      var d = () => date[_() + "Date"]();
+      var D = () => date[_() + "Day"]();
+      var m = () => date[_() + "Month"]();
+      var y = () => date[_() + "FullYear"]();
+      var H = () => date[_() + "Hours"]();
+      var M = () => date[_() + "Minutes"]();
+      var s = () => date[_() + "Seconds"]();
+      var L = () => date[_() + "Milliseconds"]();
+      var o = () => (utc ? 0 : date.getTimezoneOffset());
+      var W = () => getWeek(date);
+      var N = () => getDayOfWeek(date);
       var flags = {
-        d: d,
-        dd: pad(d),
-        ddd: dateFormat.i18n.dayNames[D],
-        dddd: dateFormat.i18n.dayNames[D + 7],
-        m: m + 1,
-        mm: pad(m + 1),
-        mmm: dateFormat.i18n.monthNames[m],
-        mmmm: dateFormat.i18n.monthNames[m + 12],
-        yy: String(y).slice(2),
-        yyyy: y,
-        h: H % 12 || 12,
-        hh: pad(H % 12 || 12),
-        H: H,
-        HH: pad(H),
-        M: M,
-        MM: pad(M),
-        s: s,
-        ss: pad(s),
-        l: pad(L, 3),
-        L: pad(Math.round(L / 10)),
-        t: H < 12 ? dateFormat.i18n.timeNames[0] : dateFormat.i18n.timeNames[1],
-        tt:
-          H < 12 ? dateFormat.i18n.timeNames[2] : dateFormat.i18n.timeNames[3],
-        T: H < 12 ? dateFormat.i18n.timeNames[4] : dateFormat.i18n.timeNames[5],
-        TT:
-          H < 12 ? dateFormat.i18n.timeNames[6] : dateFormat.i18n.timeNames[7],
-        Z: gmt
-          ? "GMT"
-          : utc
-          ? "UTC"
-          : (String(date).match(timezone) || [""])
-              .pop()
-              .replace(timezoneClip, "")
-              .replace(/GMT\+0000/g, "UTC"),
-        o:
-          (o > 0 ? "-" : "+") +
-          pad(Math.floor(Math.abs(o) / 60) * 100 + (Math.abs(o) % 60), 4),
-        S: ["th", "st", "nd", "rd"][
-          d % 10 > 3 ? 0 : (((d % 100) - (d % 10) != 10) * d) % 10
-        ],
-        W: W,
-        N: N,
+        d: () => d(),
+        dd: () => pad(d()),
+        ddd: () => dateFormat.i18n.dayNames[D()],
+        dddd: () => dateFormat.i18n.dayNames[D() + 7],
+        m: () => m() + 1,
+        mm: () => pad(m() + 1),
+        mmm: () => dateFormat.i18n.monthNames[m()],
+        mmmm: () => dateFormat.i18n.monthNames[m() + 12],
+        yy: () => String(y()).slice(2),
+        yyyy: () => y(),
+        h: () => H() % 12 || 12,
+        hh: () => pad(H() % 12 || 12),
+        H: () => H(),
+        HH: () => pad(H()),
+        M: () => M(),
+        MM: () => pad(M()),
+        s: () => s(),
+        ss: () => pad(s()),
+        l: () => pad(L(), 3),
+        L: () => pad(Math.round(L() / 10)),
+        t: () =>
+          H() < 12
+            ? dateFormat.i18n.timeNames[0]
+            : dateFormat.i18n.timeNames[1],
+        tt: () =>
+          H() < 12
+            ? dateFormat.i18n.timeNames[2]
+            : dateFormat.i18n.timeNames[3],
+        T: () =>
+          H() < 12
+            ? dateFormat.i18n.timeNames[4]
+            : dateFormat.i18n.timeNames[5],
+        TT: () =>
+          H() < 12
+            ? dateFormat.i18n.timeNames[6]
+            : dateFormat.i18n.timeNames[7],
+        Z: () =>
+          gmt
+            ? "GMT"
+            : utc
+            ? "UTC"
+            : (String(date).match(timezone) || [""])
+                .pop()
+                .replace(timezoneClip, "")
+                .replace(/GMT\+0000/g, "UTC"),
+        o: () =>
+          (o() > 0 ? "-" : "+") +
+          pad(Math.floor(Math.abs(o()) / 60) * 100 + (Math.abs(o()) % 60), 4),
+        S: () =>
+          ["th", "st", "nd", "rd"][
+            d() % 10 > 3 ? 0 : (((d() % 100) - (d() % 10) != 10) * d()) % 10
+          ],
+        W: () => W(),
+        N: () => N(),
       };
 
       return mask.replace(token, function (match) {
         if (match in flags) {
-          return flags[match];
+          return flags[match]();
         }
         return match.slice(1, match.length - 1);
       });
