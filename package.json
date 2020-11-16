@@ -19,7 +19,7 @@
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
-    "mocha": "2.0.1",
+    "mocha": "^8.2.1",
     "underscore": "1.7.0"
   },
   "engines": {
