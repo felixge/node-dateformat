@@ -1,7 +1,9 @@
 {
   "name": "dateformat",
   "description": "A node.js package for Steven Levithan's excellent dateFormat() function.",
-  "maintainers": "Felix Geisendörfer <felix@debuggable.com>",
+  "maintainers": [
+    "Felix Geisendörfer <felix@debuggable.com>"
+  ],
   "homepage": "https://github.com/felixge/node-dateformat",
   "author": "Steven Levithan",
   "contributors": [
@@ -14,18 +16,25 @@
   "license": "MIT",
   "main": "lib/dateformat",
   "devDependencies": {
-    "underscore": "1.7.0",
-    "mocha": "2.0.1"
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "mocha": "2.0.1",
+    "underscore": "1.7.0"
   },
   "engines": {
     "node": "*"
   },
   "scripts": {
-    "test": "mocha",
-    "benchmark": "node ./benchmark/benchmark.js"
+    "build": "./node_modules/.bin/babel src --out-dir lib",
+    "test": "npm run build && mocha",
+    "benchmark": "npm run build && node ./benchmark/benchmark.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/felixge/node-dateformat.git"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
   }
 }
