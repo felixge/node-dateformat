@@ -3,3 +3,5 @@ test
 benchmark
 CONTRIBUTING.md
 src
+.gitignore
+babel.config.json
