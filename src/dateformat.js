@@ -252,13 +252,13 @@
    * @param  {Object} `date`
    * @return {Number}
    */
-  function getDayOfWeek(date) {
+  const getDayOfWeek = (date) => {
     var dow = date.getDay();
     if (dow === 0) {
       dow = 7;
     }
     return dow;
-  }
+  };
 
   /**
    * kind-of shortcut
