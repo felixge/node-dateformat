@@ -21,7 +21,7 @@
     var timezoneClip = /[^-+\dA-Z]/g;
 
     // Regexes and supporting functions are cached through closure
-    return function (date, mask, utc, gmt) {
+    return (date, mask, utc, gmt) => {
       // You can't provide utc if you skip other args (use the 'UTC:' mask prefix)
       if (
         arguments.length === 1 &&
