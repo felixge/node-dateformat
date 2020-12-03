@@ -286,7 +286,7 @@
   };
 
   if (typeof define === "function" && define.amd) {
-    define(function () {
+    define(() => {
       return dateFormat;
     });
   } else if (typeof exports === "object") {
