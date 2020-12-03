@@ -125,7 +125,7 @@
         N: () => N(),
       };
 
-      return mask.replace(token, function (match) {
+      return mask.replace(token, (match) => {
         if (match in flags) {
           return flags[match]();
         }
