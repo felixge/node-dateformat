@@ -197,14 +197,14 @@
     timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"],
   };
 
-  function pad(val, len) {
+  const pad = (val, len) => {
     val = String(val);
     len = len || 2;
     while (val.length < len) {
       val = "0" + val;
     }
     return val;
-  }
+  };
 
   /**
    * Get the ISO 8601 week number
