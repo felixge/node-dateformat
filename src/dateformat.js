@@ -265,7 +265,7 @@
    * @param  {*} val
    * @return {String}
    */
-  function kindOf(val) {
+  const kindOf = (val) => {
     if (val === null) {
       return "null";
     }
@@ -283,7 +283,7 @@
     }
 
     return {}.toString.call(val).slice(8, -1).toLowerCase();
-  }
+  };
 
   if (typeof define === "function" && define.amd) {
     define(function () {
