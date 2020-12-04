@@ -113,20 +113,21 @@ dateFormat(now, "N");
 
 ### Named Formats
 
-| Name             | Mask                           | Example                  |
-| ---------------- | ------------------------------ | ------------------------ |
-| `default`        | `ddd mmm dd yyyy HH:MM:ss`     | Sat Jun 09 2007 17:46:21 |
-| `shortDate`      | `m/d/yy`                       | 6/9/07                   |
-| `mediumDate`     | `mmm d, yyyy`                  | Jun 9, 2007              |
-| `longDate`       | `mmmm d, yyyy`                 | June 9, 2007             |
-| `fullDate`       | `dddd, mmmm d, yyyy`           | Saturday, June 9, 2007   |
-| `shortTime`      | `h:MM TT`                      | 5:46 PM                  |
-| `mediumTime`     | `h:MM:ss TT`                   | 5:46:21 PM               |
-| `longTime`       | `h:MM:ss TT Z`                 | 5:46:21 PM EST           |
-| `isoDate`        | `yyyy-mm-dd`                   | 2007-06-09               |
-| `isoTime`        | `HH:MM:ss`                     | 17:46:21                 |
-| `isoDateTime`    | `yyyy-mm-dd'T'HH:MM:ss`        | 2007-06-09T17:46:21      |
-| `isoUtcDateTime` | `UTC:yyyy-mm-dd'T'HH:MM:ss'Z'` | 2007-06-09T22:46:21Z     |
+| Name              | Mask                           | Example                  |
+| ----------------- | ------------------------------ | ------------------------ |
+| `default`         | `ddd mmm dd yyyy HH:MM:ss`     | Sat Jun 09 2007 17:46:21 |
+| `shortDate`       | `m/d/yy`                       | 6/9/07                   |
+| `paddedShortDate` | `mm/dd/yyyy`                   | 06/09/2007               |
+| `mediumDate`      | `mmm d, yyyy`                  | Jun 9, 2007              |
+| `longDate`        | `mmmm d, yyyy`                 | June 9, 2007             |
+| `fullDate`        | `dddd, mmmm d, yyyy`           | Saturday, June 9, 2007   |
+| `shortTime`       | `h:MM TT`                      | 5:46 PM                  |
+| `mediumTime`      | `h:MM:ss TT`                   | 5:46:21 PM               |
+| `longTime`        | `h:MM:ss TT Z`                 | 5:46:21 PM EST           |
+| `isoDate`         | `yyyy-mm-dd`                   | 2007-06-09               |
+| `isoTime`         | `HH:MM:ss`                     | 17:46:21                 |
+| `isoDateTime`     | `yyyy-mm-dd'T'HH:MM:ss`        | 2007-06-09T17:46:21      |
+| `isoUtcDateTime`  | `UTC:yyyy-mm-dd'T'HH:MM:ss'Z'` | 2007-06-09T22:46:21Z     |
 
 ### Localization
 
