@@ -27,7 +27,7 @@
     "node": "*"
   },
   "scripts": {
-    "build": "./node_modules/.bin/babel src --out-dir lib",
+    "build": "./node_modules/.bin/babel src --out-dir lib && uglifyjs lib/dateformat.js -o lib/dateformat.js",
     "test": "npm run build && mocha",
     "benchmark": "npm run build && node ./benchmark/benchmark.js"
   },
