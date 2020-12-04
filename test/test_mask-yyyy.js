@@ -22,4 +22,18 @@ describe("Mask: 'yyyy'", function () {
     assert.strictEqual(d, "1763");
     done();
   });
+
+  it("should format '0999-01-01' as '0999'", function (done) {
+    var date = new Date("0999-01-01");
+    var d = dateFormat(date, "yyyy");
+    assert.strictEqual(d, "0999");
+    done();
+  });
+
+  it("should format '0002-12-11' as '0002'", function (done) {
+    var date = new Date("0002-12-11");
+    var d = dateFormat(date, "yyyy");
+    assert.strictEqual(d, "0002");
+    done();
+  });
 });
