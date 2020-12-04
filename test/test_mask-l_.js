@@ -5,7 +5,7 @@ describe("Mask: 'L'", function () {
   it("should format '2020-10-10T08:48:02.436' as '44'", function (done) {
     var date = new Date("2020-10-10T08:48:02.436");
     var d = dateFormat(date, "L");
-    assert.strictEqual(d, "44");
+    assert.strictEqual(d, "43");
     done();
   });
 
@@ -24,7 +24,13 @@ describe("Mask: 'L'", function () {
 
   it("should format '2002-12-25T19:35:55.655' as '66'", function (done) {
     var d = dateFormat("2002-12-25T19:35:55.655", "L");
-    assert.strictEqual(d, "66");
+    assert.strictEqual(d, "65");
+    done();
+  });
+
+  it("should format '2126-07-23T03:15:25.999' as '99'", function (done) {
+    var d = dateFormat("2126-07-23T03:15:25.999", "L");
+    assert.strictEqual(d, "99");
     done();
   });
 });
