@@ -15,10 +15,10 @@
 (function (global) {
   "use strict";
 
-  var dateFormat = (function () {
-    var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZWN]|"[^"]*"|'[^']*'/g;
-    var timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g;
-    var timezoneClip = /[^-+\dA-Z]/g;
+  const dateFormat = (function () {
+    const token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZWN]|"[^"]*"|'[^']*'/g;
+    const timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g;
+    const timezoneClip = /[^-+\dA-Z]/g;
 
     // Regexes and supporting functions are cached through closure
     return function (date, mask, utc, gmt) {
@@ -47,7 +47,7 @@
       );
 
       // Allow setting the utc/gmt argument via the mask
-      var maskSlice = mask.slice(0, 4);
+      const maskSlice = mask.slice(0, 4);
       if (maskSlice === "UTC:" || maskSlice === "GMT:") {
         mask = mask.slice(4);
         utc = true;
@@ -56,19 +56,19 @@
         }
       }
 
-      var _ = () => (utc ? "getUTC" : "get");
-      var d = () => date[_() + "Date"]();
-      var D = () => date[_() + "Day"]();
-      var m = () => date[_() + "Month"]();
-      var y = () => date[_() + "FullYear"]();
-      var H = () => date[_() + "Hours"]();
-      var M = () => date[_() + "Minutes"]();
-      var s = () => date[_() + "Seconds"]();
-      var L = () => date[_() + "Milliseconds"]();
-      var o = () => (utc ? 0 : date.getTimezoneOffset());
-      var W = () => getWeek(date);
-      var N = () => getDayOfWeek(date);
-      var flags = {
+      const _ = () => (utc ? "getUTC" : "get");
+      const d = () => date[_() + "Date"]();
+      const D = () => date[_() + "Day"]();
+      const m = () => date[_() + "Month"]();
+      const y = () => date[_() + "FullYear"]();
+      const H = () => date[_() + "Hours"]();
+      const M = () => date[_() + "Minutes"]();
+      const s = () => date[_() + "Seconds"]();
+      const L = () => date[_() + "Milliseconds"]();
+      const o = () => (utc ? 0 : date.getTimezoneOffset());
+      const W = () => getWeek(date);
+      const N = () => getDayOfWeek(date);
+      const flags = {
         d: () => d(),
         dd: () => pad(d()),
         ddd: () => dateFormat.i18n.dayNames[D()],
@@ -216,7 +216,7 @@
    */
   function getWeek(date) {
     // Remove time components of date
-    var targetThursday = new Date(
+    const targetThursday = new Date(
       date.getFullYear(),
       date.getMonth(),
       date.getDate()
@@ -228,7 +228,7 @@
     );
 
     // Take January 4th as it is always in week 1 (see ISO 8601)
-    var firstThursday = new Date(targetThursday.getFullYear(), 0, 4);
+    const firstThursday = new Date(targetThursday.getFullYear(), 0, 4);
 
     // Change date to Thursday same week
     firstThursday.setDate(
@@ -236,12 +236,12 @@
     );
 
     // Check if daylight-saving-time-switch occurred and correct for it
-    var ds =
+    const ds =
       targetThursday.getTimezoneOffset() - firstThursday.getTimezoneOffset();
     targetThursday.setHours(targetThursday.getHours() - ds);
 
     // Number of weeks between target Thursday and first Thursday
-    var weekDiff = (targetThursday - firstThursday) / (86400000 * 7);
+    const weekDiff = (targetThursday - firstThursday) / (86400000 * 7);
     return 1 + Math.floor(weekDiff);
   }
 
@@ -253,7 +253,7 @@
    * @return {Number}
    */
   function getDayOfWeek(date) {
-    var dow = date.getDay();
+    let dow = date.getDay();
     if (dow === 0) {
       dow = 7;
     }
