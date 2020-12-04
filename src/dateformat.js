@@ -15,13 +15,13 @@
 (function (global) {
   "use strict";
 
-  const dateFormat = (function () {
+  const dateFormat = (() => {
     const token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZWN]|"[^"]*"|'[^']*'/g;
     const timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g;
     const timezoneClip = /[^-+\dA-Z]/g;
 
     // Regexes and supporting functions are cached through closure
-    return function (date, mask, utc, gmt) {
+    return (date, mask, utc, gmt) => {
       // You can't provide utc if you skip other args (use the 'UTC:' mask prefix)
       if (
         arguments.length === 1 &&
@@ -125,7 +125,7 @@
         N: () => N(),
       };
 
-      return mask.replace(token, function (match) {
+      return mask.replace(token, (match) => {
         if (match in flags) {
           return flags[match]();
         }
@@ -197,14 +197,14 @@
     timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"],
   };
 
-  function pad(val, len) {
+  const pad = (val, len) => {
     val = String(val);
     len = len || 2;
     while (val.length < len) {
       val = "0" + val;
     }
     return val;
-  }
+  };
 
   /**
    * Get the ISO 8601 week number
@@ -214,7 +214,7 @@
    * @param  {Object} `date`
    * @return {Number}
    */
-  function getWeek(date) {
+  const getWeek = (date) => {
     // Remove time components of date
     const targetThursday = new Date(
       date.getFullYear(),
@@ -243,7 +243,7 @@
     // Number of weeks between target Thursday and first Thursday
     const weekDiff = (targetThursday - firstThursday) / (86400000 * 7);
     return 1 + Math.floor(weekDiff);
-  }
+  };
 
   /**
    * Get ISO-8601 numeric representation of the day of the week
@@ -252,20 +252,20 @@
    * @param  {Object} `date`
    * @return {Number}
    */
-  function getDayOfWeek(date) {
+  const getDayOfWeek = (date) => {
     let dow = date.getDay();
     if (dow === 0) {
       dow = 7;
     }
     return dow;
-  }
+  };
 
   /**
    * kind-of shortcut
    * @param  {*} val
    * @return {String}
    */
-  function kindOf(val) {
+  const kindOf = (val) => {
     if (val === null) {
       return "null";
     }
@@ -283,10 +283,10 @@
     }
 
     return {}.toString.call(val).slice(8, -1).toLowerCase();
-  }
+  };
 
   if (typeof define === "function" && define.amd) {
-    define(function () {
+    define(() => {
       return dateFormat;
     });
   } else if (typeof exports === "object") {
