@@ -78,7 +78,7 @@
         mmm: () => dateFormat.i18n.monthNames[m()],
         mmmm: () => dateFormat.i18n.monthNames[m() + 12],
         yy: () => String(y()).slice(2),
-        yyyy: () => y(),
+        yyyy: () => pad(y(), 4),
         h: () => H() % 12 || 12,
         hh: () => pad(H() % 12 || 12),
         H: () => H(),
