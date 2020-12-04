@@ -12,7 +12,7 @@
  * The mask defaults to dateFormat.masks.default.
  */
 
-((global) => {
+(function (global) {
   "use strict";
 
   var dateFormat = (() => {
