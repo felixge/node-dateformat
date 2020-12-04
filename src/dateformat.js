@@ -88,7 +88,7 @@
         s: () => s(),
         ss: () => pad(s()),
         l: () => pad(L(), 3),
-        L: () => pad(Math.round(L() / 10)),
+        L: () => pad(Math.floor(L() / 10)),
         t: () =>
           H() < 12
             ? dateFormat.i18n.timeNames[0]
