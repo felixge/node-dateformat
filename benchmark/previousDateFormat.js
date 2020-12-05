@@ -36,7 +36,7 @@ function _typeof(obj) {
   "use strict";
 
   var dateFormat = (function () {
-    var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZWN]|"[^"]*"|'[^']*'/g;
+    var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LlopSZWN]|"[^"]*"|'[^']*'/g;
     var timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g;
     var timezoneClip = /[^-+\dA-Z]/g; // Regexes and supporting functions are cached through closure
 
@@ -222,6 +222,14 @@ function _typeof(obj) {
               Math.floor(Math.abs(_o()) / 60) * 100 + (Math.abs(_o()) % 60),
               4
             )
+          );
+        },
+        p: function p() {
+          return (
+            (_o() > 0 ? "-" : "+") +
+            pad(Math.floor(Math.abs(_o()) / 60), 2) +
+            ':' +
+            pad(Math.floor(Math.abs(_o()) % 60), 2)
           );
         },
         S: function S() {
