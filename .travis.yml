@@ -1,3 +1,6 @@
 language: node_js
+arch:
+  - amd64
+  - ppc64le
 node_js:
   - "node"
