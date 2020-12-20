@@ -14,7 +14,7 @@ vendor
 build
 dest
 dist
-src
+lib
 lib-cov
 coverage
 nbproject

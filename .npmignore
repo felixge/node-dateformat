@@ -1,2 +1,7 @@
 test
 .travis.yml
+benchmark
+CONTRIBUTING.md
+src
+.gitignore
+babel.config.json
