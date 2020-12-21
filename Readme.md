@@ -82,7 +82,7 @@ dateFormat(now, "N");
 | `d`              | Day of the month as digits; no leading zero for single-digit days.                                                                                            |
 | `dd`             | Day of the month as digits; leading zero for single-digit days.                                                                                               |
 | `ddd`            | Day of the week as a three-letter abbreviation.                                                                                                               |
-| `DDD`            | "Yes", "Tod" or "Tom" if date lies within these three days. Else fall back to ddd.                                                               |
+| `DDD`            | "Yes", "Tod" or "Tom" if date lies within these three days. Else fall back to ddd.                                                                            |
 | `dddd`           | Day of the week as its full name.                                                                                                                             |
 | `DDDD`           | "Yesterday", "Today" or "Tomorrow" if date lies within these three days. Else fall back to dddd.                                                              |
 | `m`              | Month as digits; no leading zero for single-digit months.                                                                                                     |
