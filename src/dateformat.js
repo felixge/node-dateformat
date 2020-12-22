@@ -14,7 +14,7 @@
 
 (function (global) {
   const dateFormat = (() => {
-    const token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LlopSZWN]|"[^"]*"|'[^']*'/g;
+    const token = /d{1,4}|D{3,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LlopSZWN]|"[^"]*"|'[^']*'/g;
     const timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g;
     const timezoneClip = /[^-+\dA-Z]/g;
 
@@ -66,11 +66,27 @@
       const o = () => (utc ? 0 : date.getTimezoneOffset());
       const W = () => getWeek(date);
       const N = () => getDayOfWeek(date);
+
       const flags = {
         d: () => d(),
         dd: () => pad(d()),
         ddd: () => dateFormat.i18n.dayNames[D()],
+        DDD: () => getDayName({
+          y: y(),
+          m: m(),
+          D: D(),
+          _: _(),
+          dayName: dateFormat.i18n.dayNames[D()],
+          short: true
+        }),
         dddd: () => dateFormat.i18n.dayNames[D() + 7],
+        DDDD: () => getDayName({
+          y: y(),
+          m: m(),
+          D: D(),
+          _: _(),
+          dayName: dateFormat.i18n.dayNames[D() + 7]
+        }),
         m: () => m() + 1,
         mm: () => pad(m() + 1),
         mmm: () => dateFormat.i18n.monthNames[m()],
@@ -107,8 +123,8 @@
           gmt
             ? "GMT"
             : utc
-            ? "UTC"
-            : (String(date).match(timezone) || [""])
+              ? "UTC"
+              : (String(date).match(timezone) || [""])
                 .pop()
                 .replace(timezoneClip, "")
                 .replace(/GMT\+0000/g, "UTC"),
@@ -208,6 +224,40 @@
       val = "0" + val;
     }
     return val;
+  };
+
+  /**
+   * Get day name
+   * Yesterday, Today, Tomorrow if the date lies within, else fallback to Monday - Sunday  
+   * @param  {Object} 
+   * @return {String}
+   */
+  const getDayName = ({ y, m, D, _, dayName, short = false }) => {
+    const today = new Date();
+    const yesterday = new Date();
+    yesterday.setDate(yesterday[_ + 'Date']() - 1);
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow[_ + 'Date']() + 1);
+    const today_D = () => today[_ + 'Day']();
+    const today_m = () => today[_ + 'Month']();
+    const today_y = () => today[_ + 'FullYear']();
+    const yesterday_D = () => yesterday[_ + 'Day']();
+    const yesterday_m = () => yesterday[_ + 'Month']();
+    const yesterday_y = () => yesterday[_ + 'FullYear']();
+    const tomorrow_D = () => tomorrow[_ + 'Day']();
+    const tomorrow_m = () => tomorrow[_ + 'Month']();
+    const tomorrow_y = () => tomorrow[_ + 'FullYear']();
+
+    if (today_y() === y && today_m() === m && today_D() === D) {
+      return short ? 'Tod' : 'Today';
+    }
+    else if (yesterday_y() === y && yesterday_m() === m && yesterday_D() === D) {
+      return short ? 'Yes' : 'Yesterday';
+    }
+    else if (tomorrow_y() === y && tomorrow_m() === m && tomorrow_D() === D) {
+      return short ? 'Tom' : 'Tomorrow';
+    }
+    return dayName;
   };
 
   /**
