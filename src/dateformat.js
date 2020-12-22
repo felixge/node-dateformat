@@ -249,13 +249,13 @@
     const tomorrow_y = () => tomorrow[_ + 'FullYear']();
 
     if (today_y() === y && today_m() === m && today_D() === D) {
-      return short ? 'Tod' : 'Today';
+      return short ? 'Tdy' : 'Today';
     }
     else if (yesterday_y() === y && yesterday_m() === m && yesterday_D() === D) {
-      return short ? 'Yes' : 'Yesterday';
+      return short ? 'Ysd' : 'Yesterday';
     }
     else if (tomorrow_y() === y && tomorrow_m() === m && tomorrow_D() === D) {
-      return short ? 'Tom' : 'Tomorrow';
+      return short ? 'Tmw' : 'Tomorrow';
     }
     return dayName;
   };
