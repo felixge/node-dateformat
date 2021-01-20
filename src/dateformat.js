@@ -14,7 +14,7 @@
 
 (function (global) {
   const dateFormat = (() => {
-    const token = /d{1,4}|D{3,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LlopSZWN]|"[^"]*"|'[^']*'/g;
+    const token = /d{1,4}|D{3,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|W{1,2}|[LlopSZN]|"[^"]*"|'[^']*'/g;
     const timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g;
     const timezoneClip = /[^-+\dA-Z]/g;
 
@@ -141,6 +141,7 @@
             d() % 10 > 3 ? 0 : (((d() % 100) - (d() % 10) != 10) * d()) % 10
           ],
         W: () => W(),
+        WW: () => pad( W() ),
         N: () => N(),
       };
 
