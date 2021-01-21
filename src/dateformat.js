@@ -74,7 +74,7 @@
         DDD: () => getDayName({
           y: y(),
           m: m(),
-          D: D(),
+          d: d(),
           _: _(),
           dayName: dateFormat.i18n.dayNames[D()],
           short: true
@@ -83,7 +83,7 @@
         DDDD: () => getDayName({
           y: y(),
           m: m(),
-          D: D(),
+          d: d(),
           _: _(),
           dayName: dateFormat.i18n.dayNames[D() + 7]
         }),
@@ -232,29 +232,29 @@
    * @param  {Object} 
    * @return {String}
    */
-  const getDayName = ({ y, m, D, _, dayName, short = false }) => {
+  const getDayName = ({ y, m, d, _, dayName, short = false }) => {
     const today = new Date();
     const yesterday = new Date();
     yesterday.setDate(yesterday[_ + 'Date']() - 1);
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow[_ + 'Date']() + 1);
-    const today_D = () => today[_ + 'Day']();
+    const today_d = () => today[_ + 'Date']();
     const today_m = () => today[_ + 'Month']();
     const today_y = () => today[_ + 'FullYear']();
-    const yesterday_D = () => yesterday[_ + 'Day']();
+    const yesterday_d = () => yesterday[_ + 'Date']();
     const yesterday_m = () => yesterday[_ + 'Month']();
     const yesterday_y = () => yesterday[_ + 'FullYear']();
-    const tomorrow_D = () => tomorrow[_ + 'Day']();
+    const tomorrow_d = () => tomorrow[_ + 'Date']();
     const tomorrow_m = () => tomorrow[_ + 'Month']();
     const tomorrow_y = () => tomorrow[_ + 'FullYear']();
 
-    if (today_y() === y && today_m() === m && today_D() === D) {
+    if (today_y() === y && today_m() === m && today_d() === d) {
       return short ? 'Tdy' : 'Today';
     }
-    else if (yesterday_y() === y && yesterday_m() === m && yesterday_D() === D) {
+    else if (yesterday_y() === y && yesterday_m() === m && yesterday_d() === d) {
       return short ? 'Ysd' : 'Yesterday';
     }
-    else if (tomorrow_y() === y && tomorrow_m() === m && tomorrow_D() === D) {
+    else if (tomorrow_y() === y && tomorrow_m() === m && tomorrow_d() === d) {
       return short ? 'Tmw' : 'Tomorrow';
     }
     return dayName;
