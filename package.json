@@ -12,15 +12,15 @@
     "Christoph Tavan <dev@tavan.de>",
     "Jon Schlinkert (https://github.com/jonschlinkert)"
   ],
-  "version": "4.4.1",
+  "version": "4.4.2",
   "license": "MIT",
   "main": "lib/dateformat",
   "devDependencies": {
-    "@babel/cli": "^7.12.1",
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "mocha": "^8.2.1",
-    "uglify-js": "^3.12.1"
+    "uglify-js": "^3.12.5"
   },
   "engines": {
     "node": "*"
