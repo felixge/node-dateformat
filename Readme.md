@@ -109,7 +109,8 @@ dateFormat(now, "N");
 | `tt`             | Lowercase, two-character time marker string: am or pm.                                                                                                        |
 | `T`              | Uppercase, single-character time marker string: A or P.                                                                                                       |
 | `TT`             | Uppercase, two-character time marker string: AM or PM.                                                                                                        |
-| `W`              | ISO 8601 week number of the year, e.g. 42                                                                                                                     |
+| `W`              | ISO 8601 week number of the year, e.g. 4, 42                                                                                                                  |
+| `WW`             | ISO 8601 week number of the year, leading zero for single-digit, e.g. 04, 42                                                                                  |
 | `Z`              | US timezone abbreviation, e.g. EST or MDT. For non-US timezones, the GMT/UTC offset is returned, e.g. GMT-0500                                                |
 | `'...'`, `"..."` | Literal character sequence. Surrounding quotes are removed.                                                                                                   |
 | `UTC:`           | Must be the first four characters of the mask. Converts the date from local time to UTC/GMT/Zulu time before applying the mask. The "UTC:" prefix is removed. |
