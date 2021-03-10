@@ -15,7 +15,7 @@
 (function (global) {
   const dateFormat = (() => {
     const token = /d{1,4}|D{3,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|W{1,2}|[LlopSZN]|"[^"]*"|'[^']*'/g;
-    const timezone = /\b((?:[A-Z]{1,3}[A-Z][TC])(?:[-+]\d{4})?|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time)\b/g;
+    const timezone = /\b(?:[A-Z]{1,3}[A-Z][TC])(?:[-+]\d{4})?|((?:Australian )?(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time)\b/g;
     const timezoneClip = /[^-+\dA-Z]/g;
 
     // Regexes and supporting functions are cached through closure
