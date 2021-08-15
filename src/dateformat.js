@@ -23,7 +23,7 @@
       // You can't provide utc if you skip other args (use the 'UTC:' mask prefix)
       if (
         arguments.length === 1 &&
-        kindOf(date) === "string" &&
+        typeof date === "string" &&
         !/\d/.test(date)
       ) {
         mask = date;
@@ -306,31 +306,6 @@
       dow = 7;
     }
     return dow;
-  };
-
-  /**
-   * kind-of shortcut
-   * @param  {*} val
-   * @return {String}
-   */
-  const kindOf = (val) => {
-    if (val === null) {
-      return "null";
-    }
-
-    if (val === undefined) {
-      return "undefined";
-    }
-
-    if (typeof val !== "object") {
-      return typeof val;
-    }
-
-    if (Array.isArray(val)) {
-      return "array";
-    }
-
-    return {}.toString.call(val).slice(8, -1).toLowerCase();
   };
 
   if (typeof define === "function" && define.amd) {
