@@ -218,19 +218,12 @@
     timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"],
   };
 
-  const pad = (val, len) => {
-    val = String(val);
-    len = len || 2;
-    while (val.length < len) {
-      val = "0" + val;
-    }
-    return val;
-  };
+  const pad = (val, len = 2) => String(val).padStart(len, '0');
 
   /**
    * Get day name
-   * Yesterday, Today, Tomorrow if the date lies within, else fallback to Monday - Sunday  
-   * @param  {Object} 
+   * Yesterday, Today, Tomorrow if the date lies within, else fallback to Monday - Sunday
+   * @param  {Object}
    * @return {String}
    */
   const getDayName = ({ y, m, d, _, dayName, short = false }) => {
