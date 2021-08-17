@@ -1,6 +1,6 @@
-var assert = require('assert');
+import { strictEqual } from 'node:assert';
 
-var dateFormat = require('./../lib/dateformat');
+import dateFormat from './../lib/dateformat.js';
 
 describe('dayOfWeek', function() {
   it('should correctly format the timezone part', function(done) {
@@ -8,7 +8,7 @@ describe('dayOfWeek', function() {
     for(var dow = 1; dow <= 7; dow++){
       var date = new Date('2013-03-' + (start + dow));
       var N = dateFormat(date, 'N');
-      assert.strictEqual(N, String(dow));
+      strictEqual(N, String(dow));
     }
     done();
   });
