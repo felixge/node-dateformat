@@ -3,7 +3,8 @@
     [
       "@babel/env",
       {
-        "targets": "> 0.01%, not dead"
+        "targets": "> 0.01%, not dead",
+        "modules": false
       }
     ]
   ]

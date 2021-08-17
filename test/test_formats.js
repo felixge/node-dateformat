@@ -1,6 +1,6 @@
-var assert = require("assert");
+import { strictEqual } from "node:assert";
 
-var dateFormat = require("../lib/dateformat");
+import dateFormat,{ masks } from "../lib/dateformat.js";
 
 var expects = {
   default: "Sat Mar 08 2014 13:19:44",
@@ -46,7 +46,7 @@ function timezoneOffset(date) {
 }
 
 describe("dateformat([now], [mask])", function () {
-  Object.keys(dateFormat.masks).forEach(function (key) {
+  Object.keys(masks).forEach(function (key) {
     it("should format `" + key + "` mask", function (done) {
       var now = new Date(2014, 2, 8, 13, 19, 44);
       var tzOffset = timezoneOffset(now);
@@ -63,7 +63,7 @@ describe("dateformat([now], [mask])", function () {
         var expected = now.toISOString().replace(/\.000/g, "");
       }
       var actual = dateFormat(now, key);
-      assert.strictEqual(actual, expected);
+      strictEqual(actual, expected);
       done();
     });
   });
@@ -72,7 +72,7 @@ describe("dateformat([now], [mask])", function () {
     var expected = expects["default"];
     var actual = dateFormat(now);
 
-    assert.strictEqual(actual, expected);
+    strictEqual(actual, expected);
     done();
   });
 });

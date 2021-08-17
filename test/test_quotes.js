@@ -1,17 +1,16 @@
-var assert = require('assert');
+import { strictEqual } from 'node:assert';
 
-var dateFormat = require('./../lib/dateformat');
+import dateFormat from './../lib/dateformat.js';
 
 describe('quoted substrings', function() {
   var az = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   it('should not format single quoted substrings removing quotes', function() {
     var result = dateFormat("'" + az + "'");
-    assert.strictEqual(result, az);
+    strictEqual(result, az);
   });
 
   it('should not format double quoted substrings removing quotes', function() {
     var result = dateFormat('"' + az + '"');
-    assert.strictEqual(result, az);
+    strictEqual(result, az);
   });
 });
-
