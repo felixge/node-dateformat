@@ -2,8 +2,6 @@
 
 A node.js package for Steven Levithan's excellent [dateFormat()][dateformat] function.
 
-[![Build Status](https://travis-ci.org/felixge/node-dateformat.svg)](https://travis-ci.org/felixge/node-dateformat)
-
 ## Modifications
 
 - Removed the `Date.prototype.format` method. Sorry folks, but extending native prototypes is for suckers.
@@ -22,7 +20,7 @@ $ dateformat --help
 As taken from Steven's post, modified to match the Modifications listed above:
 
 ```js
-var dateFormat = require("dateformat");
+import dateFormat from "dateformat";
 var now = new Date();
 
 // Basic usage
@@ -139,7 +137,7 @@ Day names, month names and the AM/PM indicators can be localized by
 passing an object with the necessary strings. For example:
 
 ```js
-var dateFormat = require("dateformat");
+import dateFormat from "dateformat";
 dateFormat.i18n = {
   dayNames: [
     "Sun",

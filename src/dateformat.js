@@ -12,11 +12,17 @@
  * The mask defaults to masks.default.
  */
 
+// Regexes and supporting functions are cached through closure
 const token = /d{1,4}|D{3,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|W{1,2}|[LlopSZN]|"[^"]*"|'[^']*'/g;
 const timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g;
 const timezoneClip = /[^-+\dA-Z]/g;
 
-// Regexes and supporting functions are cached through closure
+/**
+ * @param {string | number | Date} date
+ * @param {string} mask
+ * @param {boolean} utc
+ * @param {boolean} gmt
+ */
 export default function dateFormat (date, mask, utc, gmt) {
   // You can't provide utc if you skip other args (use the 'UTC:' mask prefix)
   if (
@@ -256,7 +262,7 @@ const getDayName = ({ y, m, d, _, dayName, short = false }) => {
  * Based on comments from
  * http://techblog.procurios.nl/k/n618/news/view/33796/14863/Calculate-ISO-8601-week-and-year-in-javascript.html
  *
- * @param  {Object} `date`
+ * @param  {Date} `date`
  * @return {Number}
  */
 const getWeek = (date) => {
@@ -294,7 +300,7 @@ const getWeek = (date) => {
  * Get ISO-8601 numeric representation of the day of the week
  * 1 (for Monday) through 7 (for Sunday)
  *
- * @param  {Object} `date`
+ * @param  {Date} `date`
  * @return {Number}
  */
 const getDayOfWeek = (date) => {
