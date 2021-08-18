@@ -137,7 +137,7 @@ Day names, month names and the AM/PM indicators can be localized by
 passing an object with the necessary strings. For example:
 
 ```js
-var dateFormat = require("dateformat");
+import dateFormat from "dateformat";
 dateFormat.i18n = {
   dayNames: [
     "Sun",
