@@ -20,7 +20,7 @@ $ dateformat --help
 As taken from Steven's post, modified to match the Modifications listed above:
 
 ```js
-var dateFormat = require("dateformat");
+import dateFormat from "dateformat";
 var now = new Date();
 
 // Basic usage
