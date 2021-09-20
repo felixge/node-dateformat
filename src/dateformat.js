@@ -14,7 +14,7 @@
 
 // Regexes and supporting functions are cached through closure
 const token = /d{1,4}|D{3,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|W{1,2}|[LlopSZN]|"[^"]*"|'[^']*'/g;
-const timezone = /\b((?:[PMCEA][SDP][TC])(?:[-+]\d{4})?|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time)\b/g;
+const timezone = /\b(?:[A-Z]{1,3}[A-Z][TC])(?:[-+]\d{4})?|((?:Australian )?(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time)\b/g;
 const timezoneClip = /[^-+\dA-Z]/g;
 
 /**
@@ -128,10 +128,7 @@ export default function dateFormat (date, mask, utc, gmt) {
         ? "GMT"
         : utc
           ? "UTC"
-          : (String(date).match(timezone) || [""])
-            .pop()
-            .replace(timezoneClip, "")
-            .replace(/GMT\+0000/g, "UTC"),
+          : formatTimezone(date),
     o: () =>
       (o() > 0 ? "-" : "+") +
       pad(Math.floor(Math.abs(o()) / 60) * 100 + (Math.abs(o()) % 60), 4),
@@ -309,4 +306,21 @@ const getDayOfWeek = (date) => {
     dow = 7;
   }
   return dow;
+};
+
+/**
+ * Get proper timezone abbreviation or timezone offset.
+ * 
+ * This will fall back to `GMT+xxxx` if it does not recognize the
+ * timezone within the `timezone` RegEx above. Currently only common
+ * American and Australian timezone abbreviations are supported.
+ * 
+ * @param  {String | Date} date
+ * @return {String}
+ */
+export const formatTimezone = (date) => {
+  return (String(date).match(timezone) || [""])
+    .pop()
+    .replace(timezoneClip, "")
+    .replace(/GMT\+0000/g, "UTC");
 };
