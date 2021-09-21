@@ -14,7 +14,7 @@
     "Jon Schlinkert (https://github.com/jonschlinkert)",
     "Chase Manning <me@chasemanning.co.nz>"
   ],
-  "version": "5.0.0",
+  "version": "5.0.1",
   "license": "MIT",
   "type": "module",
   "main": "lib/dateformat",
