@@ -20,8 +20,8 @@ $ dateformat --help
 As taken from Steven's post, modified to match the Modifications listed above:
 
 ```js
-import dateFormat from "dateformat";
-var now = new Date();
+import dateFormat, { masks } from "dateformat";
+const now = new Date();
 
 // Basic usage
 dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
@@ -32,7 +32,7 @@ dateFormat(now, "isoDateTime");
 // 2007-06-09T17:46:21
 
 // ...Or add your own
-dateFormat.masks.hammerTime = 'HH:MM! "Can\'t touch this!"';
+masks.hammerTime = 'HH:MM! "Can\'t touch this!"';
 dateFormat(now, "hammerTime");
 // 17:46! Can't touch this!
 
@@ -137,52 +137,53 @@ Day names, month names and the AM/PM indicators can be localized by
 passing an object with the necessary strings. For example:
 
 ```js
-import dateFormat from "dateformat";
-dateFormat.i18n = {
-  dayNames: [
-    "Sun",
-    "Mon",
-    "Tue",
-    "Wed",
-    "Thu",
-    "Fri",
-    "Sat",
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ],
-  monthNames: [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ],
-  timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"],
-};
+import { i18n } from "dateformat";
+
+i18n.dayNames = [
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+i18n.monthNames = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+i18n.timeNames = ["a", "p", "am", "pm", "A", "P", "AM", "PM"];
 ```
 
 > Notice that only one language is supported at a time and all strings
