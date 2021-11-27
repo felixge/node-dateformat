@@ -17,7 +17,7 @@
   "version": "5.0.1",
   "license": "MIT",
   "type": "module",
-  "main": "lib/dateformat",
+  "main": "lib/dateformat.js",
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
