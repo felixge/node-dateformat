@@ -18,6 +18,12 @@
   "license": "MIT",
   "type": "module",
   "main": "lib/dateformat.js",
+  "exports": {
+    "node": {
+      "import": "./lib/dateformat.js",
+      "require": "./lib/dateformat.cjs"
+    }
+  },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
@@ -29,7 +35,9 @@
     "node": ">=12.20"
   },
   "scripts": {
-    "build": "./node_modules/.bin/babel src --out-dir lib && uglifyjs lib/dateformat.js -o lib/dateformat.js",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "./node_modules/.bin/babel src --out-dir lib && uglifyjs lib/dateformat.js -o lib/dateformat.js",
+    "build:cjs": "./node_modules/.bin/babel --plugins @babel/transform-modules-commonjs src/dateformat.js -o lib/dateformat.default.cjs && cp src/dateformat.cjs lib && uglifyjs lib/dateformat.default.cjs -o lib/dateformat.default.cjs",
     "test": "npm run build && mocha",
     "benchmark": "npm run build && node ./benchmark/benchmark.js"
   },
