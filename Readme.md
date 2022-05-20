@@ -17,10 +17,23 @@ $ dateformat --help
 
 ## Usage
 
-As taken from Steven's post, modified to match the Modifications listed above:
+This module supports both ESM and CJS formats.
+
+ESM:
 
 ```js
 import dateFormat, { masks } from "dateformat";
+```
+
+CJS:
+
+```js
+const dateFormat = require("dateformat");
+```
+
+As taken from Steven's post, modified to match the Modifications listed above:
+
+```js
 const now = new Date();
 
 // Basic usage
