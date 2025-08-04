@@ -1,4 +1,5 @@
-import { strictEqual } from "node:assert";
+import { describe, it } from "node:test";
+import { strictEqual } from 'node:assert';
 
 import dateFormat,{ masks } from "../lib/dateformat.js";
 
@@ -47,7 +48,7 @@ function timezoneOffset(date) {
 
 describe("dateformat([now], [mask])", function () {
   Object.keys(masks).forEach(function (key) {
-    it("should format `" + key + "` mask", function (done) {
+    it("should format `" + key + "` mask", () => {
       var now = new Date(2014, 2, 8, 13, 19, 44);
       var tzOffset = timezoneOffset(now);
       var expected = expects[key]
@@ -64,15 +65,13 @@ describe("dateformat([now], [mask])", function () {
       }
       var actual = dateFormat(now, key);
       strictEqual(actual, expected);
-      done();
     });
   });
-  it("should use `default` mask, when `mask` is empty", function (done) {
+  it("should use `default` mask, when `mask` is empty", () => {
     var now = new Date(2014, 2, 8, 13, 19, 44);
     var expected = expects["default"];
     var actual = dateFormat(now);
 
     strictEqual(actual, expected);
-    done();
   });
 });

@@ -139,7 +139,7 @@ passing an object with the necessary strings. For example:
 ```js
 import { i18n } from "dateformat";
 
-i18n.dayNames = [
+i18n.dayNamesShort = [
   "Sun",
   "Mon",
   "Tue",
@@ -147,6 +147,9 @@ i18n.dayNames = [
   "Thu",
   "Fri",
   "Sat",
+];
+
+i18n.dayNamesLong = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -156,7 +159,7 @@ i18n.dayNames = [
   "Saturday",
 ];
 
-i18n.monthNames = [
+i18n.monthNamesShort = [
   "Jan",
   "Feb",
   "Mar",
@@ -169,6 +172,9 @@ i18n.monthNames = [
   "Oct",
   "Nov",
   "Dec",
+];
+
+i18n.monthNamesLong = [
   "January",
   "February",
   "March",

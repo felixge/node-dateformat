@@ -1,38 +1,56 @@
-var previousDateFormat = require("./previousDateFormat");
-var newDateFormat = require("../lib/dateformat");
+import { Bench } from "tinybench"
+import dateFormat from "../lib/dateformat.js";
 
 const masks = [
   "d",
   "W",
   "o",
   "N",
-  "shortDate",
-  "fullDate",
-  "longTime",
+  "H",
+  "S",
+  "L",
+  "yy",
+  "yyyy",
   "default",
+  "shortDate", "paddedShortDate", "mediumDate", "longDate", "fullDate", "isoDate",
+  "shortTime", "mediumTime", "longTime", "isoTime",
+  "isoDateTime", "isoUtcDateTime",
+  "expiresHeaderFormat"
 ];
-let results = [];
+
+const bench = new Bench({ name: 'simple benchmark', time: 100 })
 
 masks.forEach((mask) => {
-  const previousSpeed = getSpeed(false, mask);
-  const newSpeed = getSpeed(true, mask);
-  results.push({
-    mask: mask,
-    previous: previousSpeed + "ms",
-    new: newSpeed + "ms",
-    improvement: Math.round((previousSpeed / newSpeed - 1) * 100, 2) + "%",
+  const date = new Date();
+  bench.add(mask, () => {
+    dateFormat(date, mask);
   });
 });
 
-function getSpeed(newVersion, mask) {
-  const startTime = new Date();
+{
   const date = new Date();
-  for (var i = 0; i < 100_000; i++) {
-    if (newVersion) newDateFormat(date, mask);
-    else previousDateFormat(date, mask);
-  }
-  const endTime = new Date();
-  return endTime - startTime;
+  bench.add("DDDD - today", () => {
+    dateFormat(date, "DDDD");
+  });
 }
 
-console.table(results);
+{
+  const date = new Date()
+  date.setDate(new Date().getDate() + 1);
+  bench.add("DDDD - tomorrow", () => {
+    dateFormat(date, "DDDD");
+  });
+}
+
+{
+  const date = new Date()
+  date.setDate(new Date().getDate() - 1);
+  bench.add("DDDD - yesterday", () => {
+    dateFormat(date, "DDDD");
+  });
+}
+
+await bench.run()
+
+console.log(bench.name)
+console.table(bench.table())
