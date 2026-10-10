@@ -95,7 +95,7 @@ export default function dateFormat (date, mask, utc, gmt) {
     mm: () => pad(m() + 1),
     mmm: () => i18n.monthNames[m()],
     mmmm: () => i18n.monthNames[m() + 12],
-    yy: () => String(y()).slice(2),
+    yy: () => pad(y(), 2).slice(-2),
     yyyy: () => pad(y(), 4),
     h: () => H() % 12 || 12,
     hh: () => pad(H() % 12 || 12),
