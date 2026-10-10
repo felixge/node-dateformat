@@ -68,8 +68,8 @@ export default function dateFormat (date, mask, utc, gmt) {
   const s = () => date[_() + "Seconds"]();
   const L = () => date[_() + "Milliseconds"]();
   const o = () => (utc ? 0 : date.getTimezoneOffset());
-  const W = () => getWeek(date);
-  const N = () => getDayOfWeek(date);
+  const W = () => getWeek(date, utc);
+  const N = () => getDayOfWeek(date, utc);
 
   const flags = {
     d: () => d(),
@@ -262,31 +262,29 @@ const getDayName = ({ y, m, d, _, dayName, short = false }) => {
  * @param  {Date} `date`
  * @return {Number}
  */
-const getWeek = (date) => {
-  // Remove time components of date
-  const targetThursday = new Date(
-    date.getFullYear(),
-    date.getMonth(),
-    date.getDate()
+const getWeek = (date, utc) => {
+  // Use the requested calendar date, with UTC arithmetic to avoid DST changes.
+  const targetThursday = new Date(date);
+  targetThursday.setUTCFullYear(
+    utc ? date.getUTCFullYear() : date.getFullYear(),
+    utc ? date.getUTCMonth() : date.getMonth(),
+    utc ? date.getUTCDate() : date.getDate()
   );
+  targetThursday.setUTCHours(0, 0, 0, 0);
 
   // Change date to Thursday same week
-  targetThursday.setDate(
-    targetThursday.getDate() - ((targetThursday.getDay() + 6) % 7) + 3
+  targetThursday.setUTCDate(
+    targetThursday.getUTCDate() - ((targetThursday.getUTCDay() + 6) % 7) + 3
   );
 
   // Take January 4th as it is always in week 1 (see ISO 8601)
-  const firstThursday = new Date(targetThursday.getFullYear(), 0, 4);
+  const firstThursday = new Date(targetThursday);
+  firstThursday.setUTCMonth(0, 4);
 
   // Change date to Thursday same week
-  firstThursday.setDate(
-    firstThursday.getDate() - ((firstThursday.getDay() + 6) % 7) + 3
+  firstThursday.setUTCDate(
+    firstThursday.getUTCDate() - ((firstThursday.getUTCDay() + 6) % 7) + 3
   );
-
-  // Check if daylight-saving-time-switch occurred and correct for it
-  const ds =
-    targetThursday.getTimezoneOffset() - firstThursday.getTimezoneOffset();
-  targetThursday.setHours(targetThursday.getHours() - ds);
 
   // Number of weeks between target Thursday and first Thursday
   const weekDiff = (targetThursday - firstThursday) / (86400000 * 7);
@@ -300,8 +298,8 @@ const getWeek = (date) => {
  * @param  {Date} `date`
  * @return {Number}
  */
-const getDayOfWeek = (date) => {
-  let dow = date.getDay();
+const getDayOfWeek = (date, utc) => {
+  let dow = utc ? date.getUTCDay() : date.getDay();
   if (dow === 0) {
     dow = 7;
   }
