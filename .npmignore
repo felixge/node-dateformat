@@ -5,3 +5,4 @@ CONTRIBUTING.md
 src
 .gitignore
 babel.config.json
+.mocharc.cjs
