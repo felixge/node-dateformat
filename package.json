@@ -31,7 +31,8 @@
   "scripts": {
     "build": "./node_modules/.bin/babel src --out-dir lib && uglifyjs lib/dateformat.js -o lib/dateformat.js",
     "test": "npm run build && mocha",
-    "benchmark": "npm run build && node ./benchmark/benchmark.js"
+    "benchmark": "npm run build && node ./benchmark/benchmark.js",
+    "prepublishOnly": "npm test"
   },
   "repository": {
     "type": "git",
