@@ -3,7 +3,7 @@
   "description": "A node.js package for Steven Levithan's excellent dateFormat() function.",
   "maintainers": [
     "Felix Geisendörfer <felix@debuggable.com>",
-    "Chase Manning <me@chasemanning.co.nz>"
+    "Chase Manning <chase@manning.dev>"
   ],
   "homepage": "https://github.com/felixge/node-dateformat",
   "author": "Steven Levithan",
@@ -12,7 +12,7 @@
     "Felix Geisendörfer <felix@debuggable.com>",
     "Christoph Tavan <dev@tavan.de>",
     "Jon Schlinkert (https://github.com/jonschlinkert)",
-    "Chase Manning <me@chasemanning.co.nz>"
+    "Chase Manning <chase@manning.dev>"
   ],
   "version": "5.0.4",
   "license": "MIT",
