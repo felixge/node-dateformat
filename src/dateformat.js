@@ -227,11 +227,12 @@ const pad = (val, len = 2) => String(val).padStart(len, '0');
  * @return {String}
  */
 const getDayName = ({ y, m, d, _, dayName, short = false }) => {
+  const setDate = _ === 'getUTC' ? 'setUTCDate' : 'setDate';
   const today = new Date();
   const yesterday = new Date();
-  yesterday.setDate(yesterday[_ + 'Date']() - 1);
+  yesterday[setDate](yesterday[_ + 'Date']() - 1);
   const tomorrow = new Date();
-  tomorrow.setDate(tomorrow[_ + 'Date']() + 1);
+  tomorrow[setDate](tomorrow[_ + 'Date']() + 1);
   const today_d = () => today[_ + 'Date']();
   const today_m = () => today[_ + 'Month']();
   const today_y = () => today[_ + 'FullYear']();
