@@ -48,13 +48,20 @@ export default function dateFormat (date, mask, utc, gmt) {
     masks[mask] || mask || masks["default"]
   );
 
-  // Allow setting the utc/gmt argument via the mask
-  const maskSlice = mask.slice(0, 4);
-  if (maskSlice === "UTC:" || maskSlice === "GMT:") {
+  // Allow setting the utc/gmt argument via the mask. The prefix may also be put in front of a
+  // named mask ("UTC:isoDate"), whose own value may start with a prefix again (isoUtcDateTime)
+  for (let i = 0; i < 2; i++) {
+    const maskSlice = mask.slice(0, 4);
+    if (maskSlice !== "UTC:" && maskSlice !== "GMT:") {
+      break;
+    }
     mask = mask.slice(4);
     utc = true;
     if (maskSlice === "GMT:") {
       gmt = true;
+    }
+    if (i === 0 && masks[mask]) {
+      mask = String(masks[mask]);
     }
   }
 
