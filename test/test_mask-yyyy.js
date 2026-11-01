@@ -36,4 +36,22 @@ describe("Mask: 'yyyy'", function () {
     strictEqual(d, "0002");
     done();
   });
+
+  // https://github.com/felixge/node-dateformat/issues/196
+  it("should format negative calendar years with a leading minus", function () {
+    for (const [year, expected] of [
+      [-1, "-0001"],
+      [-7, "-0007"],
+      [-42, "-0042"],
+      [-123, "-0123"],
+      [-10000, "-10000"],
+    ]) {
+      const localDate = new Date(0);
+      localDate.setFullYear(year, 0, 1);
+      strictEqual(dateFormat(localDate, "yyyy"), expected);
+      const utcDate = new Date(0);
+      utcDate.setUTCFullYear(year, 0, 1);
+      strictEqual(dateFormat(utcDate, "UTC:yyyy"), expected);
+    }
+  });
 });

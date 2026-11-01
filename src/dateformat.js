@@ -96,7 +96,8 @@ export default function dateFormat (date, mask, utc, gmt) {
     mmm: () => i18n.monthNames[m()],
     mmmm: () => i18n.monthNames[m() + 12],
     yy: () => pad(Math.abs(y()), 2).slice(-2),
-    yyyy: () => pad(y(), 4),
+    // Keep the minus outside zero-padding so year -1 is "-0001", not "00-1".
+    yyyy: () => (y() < 0 ? "-" : "") + pad(Math.abs(y()), 4),
     h: () => H() % 12 || 12,
     hh: () => pad(H() % 12 || 12),
     H: () => H(),
